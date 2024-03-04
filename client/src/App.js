@@ -5,26 +5,13 @@ import Navbar from './components/navbar/Navbar';
 
 function App ()
 {
-        const [ data, setData ]=useState( { members: [] } );
-
-        /*
-        useEffect( () =>
-        {
-                fetch( '/members' )
-                        .then( ( res ) => res.json() )
-                        .then( ( data ) =>
-                        {
-                                setData( data );
-                        } );
-        }, [] ); // Make sure to add an empty dependency array to useEffect
-        */
-
+        // const [ data, setData ]=useState( { members: [] } );
         return (
                 <div>
                         {/* <section>
                                 <Navbar />
-                        </section> */}
-                        {/* <section>Parallax</section>
+                        </section> 
+                         <section>Parallax</section>
       <section>Services</section>
       <section>parallax</section>
       <section>Tool1</section>
@@ -34,15 +21,7 @@ function App ()
       <section>Contact</section> */}
                         <span>Result HEre</span>
                         <Test />
-                        {/* <div>
-                                { data.members===undefined? (
-                                        <div>Loading....</div>
-                                ):(
-                                        data.members.map( ( member, index ) => (
-                                                <span key={ index }>{ member }</span>
-                                        ) )
-                                ) }
-                        </div> */}
+                        <Test />
                 </div>
         );
 }
