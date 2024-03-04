@@ -1,0 +1,17 @@
+# Ignore node_modules folder for the React client
+client/node_modules/
+
+# Ignore build artifacts for the React client
+client/build/
+
+# Ignore virtual environment for the Flask server
+server/venv/
+
+# Ignore __pycache__ folder for the Flask server
+server/__pycache__/
+
+# Ignore .DS_Store files (MacOS specific)
+.DS_Store
+
+# Ignore environment files containing sensitive information
+.env

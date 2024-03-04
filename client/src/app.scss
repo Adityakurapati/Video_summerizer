@@ -1,0 +1,105 @@
+html{
+        scroll-snap-type:y mandatory;
+        scroll-behavior: smooth;
+}
+*{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        outline:none;
+        list-style-type:none;
+}
+
+:root {
+        /* --color-primary: #6c63ff; */
+        --color-primary: #702cf5;
+        --color-success: #00bf8e;
+        --color-warning: #f7c94b;
+        --color-danger: #f75842;
+        --color-danger-varient: rgba(247, 88, 66, 0.4);
+        --color-light-green: rgb(155, 243, 155);
+        --color-white: #fff;
+        --color-light: rgba(255, 255, 255, 0.7);
+        --color-black: #1f2641;
+        --color-bg: #0c0c1d;
+        --color-bg1: #2e3267;
+        --color-bg2: #424890;
+        --color-blue: #5279f8;
+        --color-grey:lightgrey;
+        --color-linear-1: linear-gradient(45deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgb(129, 28, 245) 100%);
+        --container-width-lg: 80%;
+        --container-width-md: 90%;
+        --container-width-sm: 94%;
+        --transition: all 400ms ease;
+    }
+
+    body{
+        line-height:1.2;
+        color:var(--color-grey);
+        background-color: var(--color-bg);
+    }
+    a{
+        text-decoration: none;
+        color:inherit;
+    }
+    .container{
+        width:var(--container-width-lg);
+        margin:0 auto;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .text-left {
+        text-align: left;
+    }
+    
+    .text-black {
+        color: black !important;
+    }
+    
+    .text-right {
+        text-align: right;
+    }
+    .radius-round{
+        border-radius:50%;
+    }
+    .flex-row{
+        display:flex;
+        flex-direction:row;
+    }
+    .flex-column{
+        display:flex;
+        flex-direction:column;
+    }
+    .flex-row-center{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex-column-center{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+section{
+        width:100%;
+        height:100vh;
+        scroll-snap-align: center;
+}
+.course{
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        .box{
+                width:200px;
+                height:200px;
+                background:#f75842;
+        }
+}
