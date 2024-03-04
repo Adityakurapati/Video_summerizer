@@ -5,14 +5,14 @@ const Test =()=>{
         const variants ={
                 visible:(i)=>({opacity:1,
                         x:300,
-                        transition:{StaggerChildren:0.2}}),
+                        transition:{delay:i*0.3}}),
                 hidden:{opacity:0}
         } ;
         const items=['items','items2','items3','items4']
         return(
                 <div className='course'>
                 <motion.ul initial="hidden" variants={{variants}} animate="visible">
-                        {items.map((item)=>(
+                        {items.map((item,index)=>(
                         <motion.li variants={variants} key={item} animate="visible">{item}  custom={index}</motion.li>
                         ))}
                 </motion.ul>                
