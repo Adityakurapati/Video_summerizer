@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import './app.scss';
-import Test from './Test';
 import Navbar from './components/navbar/Navbar';
+import Hero from './components/hero/Hero';
 
 function App ()
 {
-        // const [ data, setData ]=useState( { members: [] } );
         return (
                 <div>
-                        {/* <section>
+                        <section id="HomePage">
                                 <Navbar />
-                        </section> 
-                         <section>Parallax</section>
-      <section>Services</section>
-      <section>parallax</section>
-      <section>Tool1</section>
-      <section>Tool2</section>
-      <section>Tool3</section>
-      <section>Tool4</section>
-      <section>Contact</section> */}
-                        <span>Result HEre</span>
-                        <Test />
-                        <Test />
+                                <Hero />
+                        </section>
+
+                        <section id="">Parallax</section>
+                        <section id="">Services</section>
+                        <section id="">parallax</section>
+                        <section>Tool1</section>
+                        <section>Tool2</section>
+                        <section>Tool3</section>
+                        <section>Tool4</section>
+                        <section id="">Contact</section>
+
                 </div>
         );
 }

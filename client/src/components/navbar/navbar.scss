@@ -1,14 +1,15 @@
 .navbar{
         height:100px;
         .wrapper{
-                max-width:1366px;
+                // max-width:1366px;
                 margin:auto;
                 display:flex;
                 align-items:center;
                 justify-content:space-between;
                 background: rgb(42, 19, 69);
                 height:100%;
-                width:100vw;    
+                width:100vw;
+                margin:auto 2rem;    
 
                 span{
                         font-weight:bold;
