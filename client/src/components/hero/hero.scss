@@ -19,12 +19,12 @@
                         width:50%;
                         margin: auto 15%;
                         h3{
-                                font: 30px;
+                                font-size: 40px !important;
                                 color: rgb(73, 21, 155);
                                 letter-spacing: 10px;
                         }
                         h1{
-                                font: 60px;
+                                font-size: 55px !important;
                                 color: var(--color-white);
                                 letter-spacing: 2px;
         
@@ -42,7 +42,19 @@
                                 }
                         }
                         img{
-                                width: 50px;
+                                width: 30vw;
+                                position: absolute;
+                                top:10%;
+                                right:10%;
+                        }
+                        .shadow{
+                                width: 30vw;
+                                height:5vh;
+                                background:black;
+                                filter: blur(2px);
+                                position: absolute;
+                                bottom:10%;
+                                right:20%;
                         }
                 }
         }

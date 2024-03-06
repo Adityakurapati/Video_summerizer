@@ -5,14 +5,15 @@
         justify-content: center;
         background: white;
         color: var(--color-bg1);
-      
+        
         .bg {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 400px;
-          bottom:0;
-          background: rgb(238, 236, 236);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 400px;
+                bottom:0;
+                background: rgb(238, 236, 236);
+                z-index:999;
       
           .links {
             position: absolute;

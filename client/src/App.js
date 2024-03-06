@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './app.scss';
-import Navbar from './components/navbar/Navbar';
 import Hero from './components/hero/Hero';
+import Navbar from './components/navbar/Navbar';
+import Parallax from './components/parallax/Parallax';
+import Features from './components/features/Features';
+import Testinomials from './components/testinomials/Testinomials';
+
 
 function App ()
 {
@@ -12,13 +16,12 @@ function App ()
                                 <Hero />
                         </section>
 
-                        <section id="">Parallax</section>
-                        <section id="">Services</section>
-                        <section id="">parallax</section>
-                        <section>Tool1</section>
-                        <section>Tool2</section>
-                        <section>Tool3</section>
-                        <section>Tool4</section>
+                        <section id="Parallax-1"><Parallax type='services' /></section>
+                        <section id="Features">
+                                <Features />
+                        </section>
+                        <section id=""><Parallax type='testinomials' /></section>
+                        <Testinomials />
                         <section id="">Contact</section>
 
                 </div>
