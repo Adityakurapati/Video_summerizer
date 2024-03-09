@@ -8,8 +8,8 @@ const Parallax = ({ type }) => {
     target: ref,
     offset: ["start start", "end start"], // [start, end]
   });
-  const yText = useTransform(scrollYProgress, [0, 100], ["0%", "500%"]);
-  const yBg = useTransform(scrollYProgress, [0, 100], ["0%", "100%"]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "500%"]);
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <div
@@ -25,7 +25,7 @@ const Parallax = ({ type }) => {
         className="planets"
         style={{
           y: yText,
-          backgroundImage: `url(${type === "services" ? "/images/planet.png" : "/images/rocket.jpg"})`,
+          backgroundImage: `url(${type === "services" ? "/images/planets.png" : "/images/rocket.jpg"})`,
         }}
       ></motion.div>
       <motion.div style={{ x: yBg }} className="stars"></motion.div>

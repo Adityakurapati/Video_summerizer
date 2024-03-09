@@ -48,14 +48,14 @@ const Hero = () => {
                                 <motion.button variants={textVariants} >Samples</motion.button>
                                 <motion.button variants={textVariants} >Our Tools</motion.button>
                         </motion.div>
-                        <motion.img src="/images/main.png" alt=""  variants={textVariants} />
-                        <motion.div  variants={textVariants} classNname="shadow" ></motion.div>
+                        
+                        <motion.div  variants={textVariants} className="shadow" ></motion.div>
                 </motion.div>
                 <motion.div className="slidingTextContainer" variants={sliderVariants} initial="initial" animate="animate">
                         Quick Glance
                 </motion.div>
                 <motion.div className="imageContainer" variants={textVariants} >
-                        <img src="/material.png" alt="" />
+                        <motion.img src="/images/main.png" alt=""  variants={textVariants} />
                 </motion.div>
 
               

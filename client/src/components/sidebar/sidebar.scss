@@ -1,3 +1,5 @@
+@import '../../app.scss';
+
 .sidebar {
         display: flex;
         flex-direction: column;
@@ -12,8 +14,13 @@
                 left: 0;
                 width: 400px;
                 bottom:0;
-                background: rgb(238, 236, 236);
-                z-index:999;
+                background: rgb(23, 17, 50);
+                z-index:15;
+
+                @include mobile{
+                        width:250px !important;
+                        height:100vh !important;
+                }
       
           .links {
             position: absolute;
@@ -27,12 +34,16 @@
           }
           a{
                 font-size:25px;
+
+                @include mobile{
+                        font-size: 20px;
+                }
           }
         }
       
         button {
-          width: 50px;
-          height: 50px;
+          width: 50px !important;
+          height: 50px !important;
           border-radius: 50%;
           position:fixed;
           top:25px;
@@ -40,6 +51,7 @@
           height:25px;
           position: fixed;
           border: none;
+          z-index:17;
         }
-      }
+}
       

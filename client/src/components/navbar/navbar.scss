@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .navbar{
         height:100px;
         .wrapper{
@@ -6,13 +8,26 @@
                 display:flex;
                 align-items:center;
                 justify-content:space-between;
-                background: rgb(42, 19, 69);
                 height:100%;
                 width:100vw;
                 margin:auto 2rem;    
 
+                @include mobile{
+                        justify-content: flex-end;
+                        padding:20px;
+                }
+
                 span{
                         font-weight:bold;
+                        position:relative;
+                        font-weight:bold;
+                        left:5%;
+                        font-size:2.2rem;
+
+                        @include mobile{
+                                font-size: 1.1rem;
+                                // display: none;
+                        }
                 }
                 .link{
                         display:grid    ;

@@ -1,0 +1,63 @@
+.testinomials{
+        position:relative;
+
+        .progress{
+                position:sticky;
+                top:0;
+                left:0;
+                padding:50px;
+                text-align:center;
+                color:orange !important;
+                font-size:35px;
+
+                .progressBar{
+                        height:10px;
+                        background: white;
+                }
+        }
+}
+
+.container{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        width:100%;
+        height:100%;
+
+        .wrapper{
+                max-width: 1348px;
+                height:100%;
+                margin:auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap:50px;
+
+                .imageContainer{
+                        flex:1;
+                        height:50%;
+
+                        img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit:cover;
+                        }
+                }
+                .textContainer{
+                        flex:1;
+                        display:flex;
+                        flex-direction: column;
+                        gap:30px;
+
+                        h2{
+                                font-size: 72px;
+                        }
+                        .discription{
+
+                        }
+                        .ratings{
+                                color:orange;
+                        }
+                }
+        }
+}

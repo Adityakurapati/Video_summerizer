@@ -1,4 +1,3 @@
-// BlurBox.js
 import { motion } from "framer-motion";
 
 const variants = {
@@ -19,13 +18,13 @@ const variants = {
 const BlurBox = ({ color, blur, x, y, width, height }) => {
   const styles = {
     background: color,
-    filter: `blur(${blur}px)`, // Use `blur` directly
+    filter: `blur(${blur}px)`, 
     width: width,
     height: height,
     position: "absolute",
-    left: x,
+    left: x, 
     top: y,
-    borderRadius: "50%",
+    borderRadius:"50%"
   };
 
   return <motion.div className="blur" variants={variants} initial="initial" animate="animate" style={styles}></motion.div>;

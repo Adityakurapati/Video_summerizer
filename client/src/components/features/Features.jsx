@@ -2,17 +2,15 @@ import { motion, useInView } from 'framer-motion'
 import './features.scss'
 import Listbox from './listbox/Listbox'
 import { useRef } from 'react'
-
+// import '../blurbox/Blurbox'
 const variants={
         initial:{
-                x:-500,
-                y:100,
-                opacity:0
+                x:"-500",
+                y:100
         },
         animate:{
                 x:0,
                 y:0,
-                opacity:1,
                 transition:{
                         duration:2,
                         staggerchildren:0.1
@@ -25,7 +23,9 @@ const Features = () => {
         const inView = useInView(ref,{margin:"-100px"});
   return (
 //     <motion.div className='features' variants={variants} initial="initial" whileInView="animate">
+        
     <motion.div className='features' variants={variants} initial="initial" animate={inView && "animate"}>
+        {/* <BlurBox color="blue" x="0" y="0" blur={2} width="40px" height="40px"/> */}
         <motion.div className="textContainer" variants={variants}>
                 <p>Let's Gooo To <br/> Summerrrize ...</p>
                 <hr />
