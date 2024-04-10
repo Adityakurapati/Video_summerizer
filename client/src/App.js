@@ -7,11 +7,15 @@ import Features from './components/features/Features';
 import Testinomials from './components/testinomials/Testinomials';
 import Contact from './components/contact/Contact';
 import Cursor from './components/cursor/Cursor';
-
+import VideoSummerizer from './components/video-summerizer/VideoSummerizer';
 function App ()
 {
         return (
                 <div>
+                        <section id="video-summerize-upload">
+                                <Navbar />
+                                <VideoSummerizer />
+                        </section>
                         <Cursor />
                         <section id="HomePage">
                                 <Navbar />
@@ -23,11 +27,11 @@ function App ()
                                 <Features />
                         </section>
                         <section id=""><Parallax type='testinomials' /></section>
+
                         <Testinomials />
                         <section id="">
                                 <Contact />
                         </section>
- */}
                 </div>
         );
 }

@@ -14,7 +14,7 @@
           font-size: 100px;
           @include mobile{
                   font-size: 72px;
-                
+                text-align:center;
           }
         }
       
@@ -30,6 +30,11 @@
           left: 0;
           bottom: 0;
           z-index: 3;
+
+          @include mobile{
+                background-size:contain;
+                height:50%;
+                }
         }
       
         .planets {
