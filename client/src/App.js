@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './app.scss';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
 import Parallax from './components/parallax/Parallax';
@@ -13,21 +13,20 @@ import YtSummerizer from './components/video-summerizer/YtSummerizer';
 import Chatbot from './components/video-summerizer/Chatbot';
 import Login from './components/login/Login';
 import FloatingMenu from './components/menu/FloatingMenu';
-
+import Callback from './components/callback/Callback';
+import Register from './components/register/Register';
 function App ()
 {
         const [ user, setUser ]=useState( null );
-        const location=useLocation();
 
         useEffect( () =>
         {
-                const params=new URLSearchParams( location.search );
-                const userData=params.get( 'user' );
-                if ( userData )
+                const user=localStorage.getItem( 'user' );
+                if ( user )
                 {
-                        setUser( JSON.parse( userData ) );
+                        setUser( JSON.parse( user ) );
                 }
-        }, [ location.search ] );
+        }, [] );
 
         const handleViewSummerizations=() =>
         {
@@ -40,38 +39,42 @@ function App ()
         };
 
         return (
-                <div>
-                        <Routes>
-                                <Route path="/video-summerize-upload" element={ <VideoSummerizer /> } />
-                                <Route path="/yt-summerize-process" element={ <YtSummerizer /> } />
-                                <Route path="/chatbot" element={ <Chatbot /> } />
-                                <Route path="/login" element={ <Login setUser={ setUser } /> } />
-                                <Route path="/" element={
-                                        <div>
-                                                <section id="HomePage">
-                                                        <Navbar />
-                                                        <Hero />
-                                                </section>
+                <Router>
+                        <div>
+                                <Routes>
+                                        <Route path="/video-summerize-upload" element={ <VideoSummerizer /> } />
+                                        <Route path="/yt-summerize-process" element={ <YtSummerizer /> } />
+                                        <Route path="/chatbot" element={ <Chatbot /> } />
+                                        <Route path="/login" element={ <Login setUser={ setUser } /> } />
+                                        <Route path="/register" element={ <Register setUser={ setUser } /> } />
+                                        <Route path="/callback" element={ <Callback /> } />
+                                        <Route path="/" element={
+                                                <div>
+                                                        <section id="HomePage">
+                                                                <Navbar />
+                                                                <Hero />
+                                                        </section>
 
-                                                <section id="Services">
-                                                        <Parallax type='services' />
-                                                </section>
-                                                <section id="Features">
-                                                        <Features />
-                                                </section>
-                                                <section id="">
-                                                        <Parallax type='testinomials' />
-                                                </section>
-                                                <Testinomials />
-                                                <section id="">
-                                                        <Contact />
-                                                </section>
-                                        </div>
-                                } />
-                        </Routes>
-                        { user&&<FloatingMenu userName={ user.name } onViewSummerizations={ handleViewSummerizations } onToggleDarkMode={ handleToggleDarkMode } /> }
-                        <Cursor />
-                </div>
+                                                        <section id="Services">
+                                                                <Parallax type='services' />
+                                                        </section>
+                                                        <section id="Features">
+                                                                <Features />
+                                                        </section>
+                                                        <section id="">
+                                                                <Parallax type='testinomials' />
+                                                        </section>
+                                                        <Testinomials />
+                                                        <section id="">
+                                                                <Contact />
+                                                        </section>
+                                                </div>
+                                        } />
+                                </Routes>
+                                { user&&<FloatingMenu userName={ user.name } onViewSummerizations={ handleViewSummerizations } onToggleDarkMode={ handleToggleDarkMode } /> }
+                                <Cursor />
+                        </div>
+                </Router>
         );
 }
 

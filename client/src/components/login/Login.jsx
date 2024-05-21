@@ -1,9 +1,10 @@
 import React from 'react';
 import './login.scss';
 
-const Login = ({ onLogin, user, setUser }) => {
+const Login = ({ onLogin, setUser }) => {
+
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:5000/login';
+        window.location.href = 'http://localhost:5000/GoogleLogin';
     };
 
     const handleManualLogin = async (event) => {
@@ -12,23 +13,21 @@ const Login = ({ onLogin, user, setUser }) => {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch('http://localhost:5000/manualLogin', {
+            const response = await fetch('http://localhost:5000/UserLogin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
-                mode: 'cors' // Allow CORS
+                body: JSON.stringify(data)
             });
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
-            } else {
-                const result = await response.json();
-                setUser({ 'name': result.user });
-                onLogin(result.user); // Callback to notify parent component of login
-                console.log('User logged in:', result.user);
             }
+            const result = await response.json();
+            setUser({ 'name': result.user });
+            onLogin(result.user); // Callback to notify parent component of login
+            console.log('User logged in:', result.user);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -36,11 +35,11 @@ const Login = ({ onLogin, user, setUser }) => {
 
     return (
         <div className="login-container">
-            <button onClick={handleGoogleLogin}>Login with Google</button>
             <form className="login-form" onSubmit={handleManualLogin}>
                 <input type="text" name="username" placeholder="Username" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <button type="submit">Login</button>
+                <button className="login-google" onClick={handleGoogleLogin}>Login with Google</button>
             </form>
         </div>
     );
