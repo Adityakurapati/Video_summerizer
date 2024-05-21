@@ -1,0 +1,28 @@
+.text-input-container {
+        display: flex;
+        align-items: center;
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            margin-right: -1px;
+            width:65vw;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff; // Adjust button background color
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            .arrow-icon {
+                color: white;
+                font-size: 20px;
+            }
+        }
+    }

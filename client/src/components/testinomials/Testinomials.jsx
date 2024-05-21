@@ -1,24 +1,27 @@
 import { useRef } from 'react';
 import {motion,useScroll, useSpring, useTransform} from 'framer-motion';
 import './testinomials.scss';
-const items =[
+const items = [
         {
-        id:1,
-        title:"User1",
-        img:"/images/rocket.jpg",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ratione dignissimos obcaecati ex necessitatibus ipsum eius unde animi nam ullam."},
+            id: 1,
+            name: "John Doe",
+            image: "/images/user1.jpg",
+            description: "John was extremely satisfied with our service. He mentioned how our product significantly improved his productivity and saved him valuable time."
+        },
         {
-        id:2,
-        title:"User2",
-        img:"/images/rocket.jpg",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ratione dignissimos obcaecati ex necessitatibus ipsum eius unde animi nam ullam."},
+            id: 2,
+            name: "Jane Smith",
+            image: "/images/user2.jpg",
+            description: "Jane loved our platform! She highlighted how user-friendly it was and how it helped her collaborate seamlessly with her team."
+        },
         {
-        id:3,
-        title:"User3",
-        img:"/images/rocket.jpg",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ratione dignissimos obcaecati ex necessitatibus ipsum eius unde animi nam ullam."},
-];
-
+            id: 3,
+            name: "Michael Johnson",
+            image: "/images/user3.jpg",
+            description: "Michael shared his positive experience with our customer support team. He praised their responsiveness and willingness to help."
+        }
+    ];
+    
 
 
 const Single =({item})=>{
@@ -33,12 +36,12 @@ const Single =({item})=>{
                         <div className="container">
                                 <div className="wrapper">
                                         <div className="imageContainer" ref={ref}>
-                                                <motion.img src={item.img} alt="" />
+                                                <motion.img src={item.image} alt="" />
                                         </div>
                                 <motion.div className="textContainer" style={{ y:y}}>
                                 <motion.h2 >{item.title}</motion.h2>
                                 <motion.p className="discription">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, earum. Modi excepturi neque consequuntur provident exercitationem, nihil mollitia in enim voluptatibus, dicta eos nesciunt, necessitatibus odit? Numquam odio facere nihil officia vel nostrum repellat tenetur ab, ex ea placeat velit dolor ratione aliquam porro quibusdam ullam suscipit alias totam eaque modi deserunt vitae perferendis. Aut facere, similique quisquam at velit deserunt esse, ratione et, voluptatem sapiente ipsum nemo. Possimus sequi repellendus a corporis officiis quis quos, dolores magni explicabo quisquam!
+                                        {item.description}
                                 </motion.p>
                                 <motion.div className="ratings"></motion.div>
                         </motion.div>

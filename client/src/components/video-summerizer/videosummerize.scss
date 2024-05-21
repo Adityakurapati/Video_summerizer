@@ -1,104 +1,85 @@
-// Variables for colors and animation durations
-$primary-color: #007bff;
-$secondary-color: #ffc107;
-$border-radius: 5px;
-$animation-duration: 0.3s;
-
-// Mixin for button hover effect
-@mixin button-hover {
-  transition: background-color $animation-duration ease;
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
-}
-
-// Global styles
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-}
-
-// Header styles
-header {
-  background-color: $primary-color;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
-
-// Navigation styles
-nav {
-  ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-
-    li {
-      margin: 0 10px;
-      a {
-        color: white;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
+.summerizer-upload-container {
+        margin: 10rem auto;
+        max-width: 600px;
+        padding: 30px 20px;
+        border: 2px solid #ccc;
+        border-style:dashed;
+        border-radius: 10px;
+        // background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+        nav {
+            margin-bottom: 20px;
+            text-align: center;
+            li {
+                display: inline-block;
+                margin-right: 20px;
+                cursor: pointer;
+                h1 {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #333;
+                    margin: 0;
+                }
+            }
         }
-      }
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin:auto 5rem;
+    
+            form {
+                width: 100%;
+                max-width: 400px;
+    
+                .upload-video-icons {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    label {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-bottom: 20px;
+    
+                        input[type="file"] {
+                            display: none;
+                        }
+    
+                        .cover{
+                                background:#423751;
+                                border-radius: 50%;
+                                padding:2rem;
+                                display:grid;
+                                place-items:center;
+                                .upload-icon {
+                                        font-size:5rem;
+                                        color: #007bff; // Adjust icon color
+                                        margin-right: 10px;
+            
+                                    }
+                        }
+                    }
+    
+                    button {
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        background-color: #007bff;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+    
+                        &:hover {
+                            background-color: #0056b3; // Darker shade of primary color
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
-}
-
-// Button styles
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border: none;
-  border-radius: $border-radius;
-  background-color: $primary-color;
-  color: white;
-  cursor: pointer;
-  @include button-hover;
-}
-
-// Input field styles
-.input-field {
-  border: 1px solid #ccc;
-  border-radius: $border-radius;
-  padding: 10px;
-  &:focus {
-    outline: none;
-    border-color: $primary-color;
-  }
-}
-
-// Card styles
-.card {
-  background-color: white;
-  border-radius: $border-radius;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform $animation-duration ease;
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-// Animation for fading elements
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-// Container styles
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    

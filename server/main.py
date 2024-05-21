@@ -40,6 +40,8 @@ def login():
     return redirect(authorization_url)
 
 
+from flask import jsonify
+
 @app.route("/callback")
 def callback():
     flow.fetch_token(authorization_response=request.url)
@@ -60,7 +62,8 @@ def callback():
 
     session["google_id"] = id_info.get("sub")
     session["name"] = id_info.get("name")
-    return redirect("/protected_area")
+    user = {"name": session["name"]}  # Create user object
+    return redirect("?user=" + json.dumps(user))  # Redirect with user information
 
 
 @app.route("/logout")

@@ -1,0 +1,25 @@
+# Python-related
+*.pyc
+__pycache__/
+venv/
+*.pyo
+*.pyc
+*.pyc/
+*.pyo/
+*.pyd/
+*.pyd
+*.pyz
+*.pyz/
+*.pyw
+*.pyw/
+*.py~
+.env
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Miscellaneous
+.DS_Store
