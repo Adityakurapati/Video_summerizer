@@ -1,3 +1,4 @@
+from bson.objectid import ObjectId
 from flask import Flask, session, abort, redirect, request, jsonify
 from flask_cors import CORS
 import pymongo
@@ -8,25 +9,23 @@ from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
+import json
 from flask_cors import cross_origin
 
 app = Flask("QuickGlance")
-cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:3000"]}})
-
-# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})  # Allow requests from React frontend
+CORS(app)
 
 # Database connection
-connection_url = "mongodb+srv://QuickGlance:quick23@cluster0.cfmhwiy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+connection_url = "mongodb+srv://QuickGlance:quick23@cluster0.cfmhwiy.mongodb.net/?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE"
 client = pymongo.MongoClient(connection_url)
 QuickGlanceDb = client['QuickGlance']
 print("Db Connected")
 
 # Collections
-summarizations = QuickGlanceDb.Summerizations
+summarizations_collection = QuickGlanceDb.Summerizations
 users = QuickGlanceDb.users
 
 app.secret_key = "CodeSpecialist.com"
-
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 GOOGLE_CLIENT_ID = "43571195800-skg4olbcqbvmpb9ab5d6pia06cau8fc5.apps.googleusercontent.com"
@@ -37,15 +36,6 @@ flow = Flow.from_client_secrets_file(
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
     redirect_uri="http://127.0.0.1:5000/callback"
 )
-
-def login_is_required(function):
-    def wrapper(*args, **kwargs):
-        if "google_id" not in session:
-            return abort(401)  # Authorization required
-        else:
-            return function()
-
-    return wrapper
 
 @app.route("/GoogleLogin")
 def login():
@@ -83,7 +73,6 @@ def user_login():
     username = data.get("username")
     password = data.get("password")
 
-    # Implement your authentication logic to validate the username and password
     user = users.find_one({"username": username, "password": password})
     print(user)
     if user:
@@ -100,11 +89,9 @@ def user_register():
     password = data.get("password")
     email = data.get("email")
 
-    # Check if the user already exists
     if users.find_one({"username": username}):
         return abort(400, "User already exists")
 
-    # Insert the new user into the database
     new_user = {
         "username": username,
         "password": password,  # In a real application, make sure to hash the password
@@ -123,10 +110,27 @@ def logout():
 def index():
     return "Hello World <a href='/GoogleLogin'><button>Login</button></a>"
 
-@app.route("/protected_area")
-@login_is_required
-def protected_area():
-    return f"Hello {session['name']}! <br/> <a href='/logout'><button>Logout</button></a>"
+@app.route('/view-summerizations', methods=["GET"])
+def view_summarizations():
+    username = request.args.get('user')
+    if not username:
+        return abort(400, "Username is required")
+
+    user = users.find_one({"username": username})
+    if not user:
+        return abort(404, "User not found")
+
+    user_id = user["_id"]
+    summarizations = summarizations_collection.find({"user_id": user_id})
+
+    result = []
+    for summary in summarizations:
+        result.append({
+            "text": summary.get("result"),
+            "video_link": summary.get("video_link")
+        })
+
+    return jsonify({"summarizations": result})
 
 if __name__ == "__main__":
     app.run(debug=True)

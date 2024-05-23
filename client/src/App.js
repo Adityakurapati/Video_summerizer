@@ -15,16 +15,18 @@ import Login from './components/login/Login';
 import FloatingMenu from './components/menu/FloatingMenu';
 import Callback from './components/callback/Callback';
 import Register from './components/register/Register';
+import SummerizationViewer from './components/viewer/SummerizationViewer';
+
 function App ()
 {
         const [ user, setUser ]=useState( null );
 
         useEffect( () =>
         {
-                const user=localStorage.getItem( 'user' );
-                if ( user )
+                const storedUser=localStorage.getItem( 'user' );
+                if ( storedUser )
                 {
-                        setUser( JSON.parse( user ) );
+                        setUser( JSON.parse( storedUser ) );
                 }
         }, [] );
 
@@ -42,8 +44,9 @@ function App ()
                 <Router>
                         <div>
                                 <Routes>
-                                        <Route path="/video-summerize-upload" element={ <VideoSummerizer /> } />
-                                        <Route path="/yt-summerize-process" element={ <YtSummerizer /> } />
+                                        <Route path="/upload-video" element={ <VideoSummerizer /> } />
+                                        <Route path="/view-summerizations" element={ <SummerizationViewer username={ user?.name } /> } />
+                                        <Route path="/yt-summerize" element={ <YtSummerizer /> } />
                                         <Route path="/chatbot" element={ <Chatbot /> } />
                                         <Route path="/login" element={ <Login setUser={ setUser } /> } />
                                         <Route path="/register" element={ <Register setUser={ setUser } /> } />
@@ -54,7 +57,6 @@ function App ()
                                                                 <Navbar />
                                                                 <Hero />
                                                         </section>
-
                                                         <section id="Services">
                                                                 <Parallax type='services' />
                                                         </section>
