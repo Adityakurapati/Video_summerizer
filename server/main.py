@@ -1,5 +1,4 @@
-from bson.objectid import ObjectId
-from flask import Flask, session, abort, redirect, request, jsonify
+from flask import Flask, session, abort, redirect, request, jsonify, url_for
 from flask_cors import CORS
 import pymongo
 import os
@@ -10,7 +9,6 @@ from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
 import json
-from flask_cors import cross_origin
 
 app = Flask("QuickGlance")
 CORS(app)
@@ -25,6 +23,7 @@ print("Db Connected")
 summarizations_collection = QuickGlanceDb.Summerizations
 users = QuickGlanceDb.users
 
+# Login With Google 
 app.secret_key = "CodeSpecialist.com"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
@@ -36,6 +35,12 @@ flow = Flow.from_client_secrets_file(
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
     redirect_uri="http://127.0.0.1:5000/callback"
 )
+
+# Video Upload 
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mkv', 'mov'}  # Define allowed file extensions
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/GoogleLogin")
 def login():
@@ -131,6 +136,40 @@ def view_summarizations():
         })
 
     return jsonify({"summarizations": result})
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+@app.route('/uploadVideo', methods=['POST'])
+def upload_video():
+    # Check if the POST request has the file part
+    if 'video' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+
+    file = request.files['video']
+
+    # If user does not select file, browser also submits an empty part without filename
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if file and allowed_file(file.filename):
+        # Save the video file to the uploads folder
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        return redirect(url_for('process_video', file=file.filename))
+    else:
+        return jsonify({'error': 'Invalid file format'}), 400
+
+@app.route('/processVideo')
+def process_video():
+    file = request.args.get('file')
+    if not file:
+        return jsonify({'message': 'No file specified'}), 400
+    # Process the video file here
+    result = "Here Is The Summarization Of Video"
+    return jsonify({'message': result})
 
 if __name__ == "__main__":
     app.run(debug=True)

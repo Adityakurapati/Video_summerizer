@@ -3,18 +3,19 @@
         max-width: 600px;
         padding: 30px 20px;
         border: 2px solid #ccc;
-        border-style:dashed;
+        border-style: dashed;
         border-radius: 10px;
-        // background-color: #f9f9f9;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
         nav {
             margin-bottom: 20px;
             text-align: center;
+    
             li {
                 display: inline-block;
                 margin-right: 20px;
                 cursor: pointer;
+    
                 h1 {
                     font-size: 24px;
                     font-weight: bold;
@@ -28,7 +29,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin:auto 5rem;
+            margin: auto 5rem;
     
             form {
                 width: 100%;
@@ -49,18 +50,18 @@
                             display: none;
                         }
     
-                        .cover{
-                                background:#423751;
-                                border-radius: 50%;
-                                padding:2rem;
-                                display:grid;
-                                place-items:center;
-                                .upload-icon {
-                                        font-size:5rem;
-                                        color: #007bff; // Adjust icon color
-                                        margin-right: 10px;
-            
-                                    }
+                        .cover {
+                            background: #423751;
+                            border-radius: 50%;
+                            padding: 2rem;
+                            display: grid;
+                            place-items: center;
+    
+                            .upload-icon {
+                                font-size: 5rem;
+                                color: #007bff; // Adjust icon color
+                                margin-right: 10px;
+                            }
                         }
                     }
     
@@ -80,6 +81,10 @@
                     }
                 }
             }
+        }
+    
+        .loader-container {
+            margin-top: 20px;
         }
     }
     

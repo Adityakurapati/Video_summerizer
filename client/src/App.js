@@ -16,6 +16,7 @@ import FloatingMenu from './components/menu/FloatingMenu';
 import Callback from './components/callback/Callback';
 import Register from './components/register/Register';
 import SummerizationViewer from './components/viewer/SummerizationViewer';
+import ProcessedVideo from './components/viewer/ProcessedVideo';
 
 function App ()
 {
@@ -46,6 +47,7 @@ function App ()
                                 <Routes>
                                         <Route path="/upload-video" element={ <VideoSummerizer /> } />
                                         <Route path="/view-summerizations" element={ <SummerizationViewer username={ user?.name } /> } />
+                                        <Route path="/processedVideo" element={ <ProcessedVideo /> } />
                                         <Route path="/yt-summerize" element={ <YtSummerizer /> } />
                                         <Route path="/chatbot" element={ <Chatbot /> } />
                                         <Route path="/login" element={ <Login setUser={ setUser } /> } />
