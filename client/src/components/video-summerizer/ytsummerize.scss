@@ -1,28 +1,156 @@
-.text-input-container {
-        display: flex;
-        align-items: center;
-
-        input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
-            margin-right: -1px;
-            width:65vw;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #007bff; // Adjust button background color
-            border: none;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-
-            .arrow-icon {
-                color: white;
-                font-size: 20px;
-            }
-        }
-    }
+// // Base styles
+// body {
+//         font-family: 'Arial', sans-serif;
+//         margin: 0;
+//         padding: 0;
+//         background-color: #5c5090;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 100vh;
+//       }
+      
+//       // Container for the summarizer
+//       .summerizer-upload-container {
+//         background: #ffffff;
+//         border-radius: 10px;
+//         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//         padding: 20px;
+//         width: 400px;
+//         max-width: 90%;
+//         margin: 0 auto;
+//         transition: all 0.3s ease;
+      
+//         // Animation for fade-in and fade-out
+//         &.initial {
+//           opacity: 0;
+//         }
+//         &.animate {
+//           opacity: 1;
+//         }
+//         &.exit {
+//           opacity: 0;
+//         }
+//       }
+      
+//       // Navigation styles
+//       nav {
+//         display: flex;
+//         justify-content: center;
+//         margin-bottom: 20px;
+      
+//         li {
+//           list-style: none;
+//           cursor: pointer;
+//           font-size: 24px;
+//           font-weight: bold;
+//           color: #333;
+      
+//           &:hover {
+//             color: #007BFF;
+//           }
+//           &:active {
+//             color: #0056b3;
+//           }
+//         }
+//       }
+      
+//       // Form container
+//       .container {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+      
+//         // Animation for scaling
+//         &.initial {
+//           transform: scale(0);
+//         }
+//         &.animate {
+//           transform: scale(1);
+//         }
+//         &.exit {
+//           transform: scale(0);
+//         }
+      
+//         // Form and input styles
+//         form {
+//           width: 100%;
+//         }
+      
+//         .upload-video-icons {
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           margin-top: 20px;
+//         }
+      
+//         .text-input-container {
+//           display: flex;
+//           align-items: center;
+//           width: 100%;
+      
+//           input {
+//             flex: 1;
+//             padding: 10px;
+//             font-size: 16px;
+//             border: 1px solid #ccc;
+//             border-radius: 4px 0 0 4px;
+//             outline: none;
+//             transition: border-color 0.3s;
+      
+//             &:focus {
+//               border-color: #007BFF;
+//             }
+//           }
+      
+//           button {
+//             padding: 10px;
+//             background-color: #007BFF;
+//             border: none;
+//             border-radius: 0 4px 4px 0;
+//             color: white;
+//             cursor: pointer;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             transition: background-color 0.3s, transform 0.3s;
+      
+//             &.loading {
+//               background-color: #ccc;
+//               cursor: not-allowed;
+//             }
+      
+//             .spinner {
+//               border: 2px solid rgba(255, 255, 255, 0.3);
+//               border-top: 2px solid white;
+//               border-radius: 50%;
+//               width: 20px;
+//               height: 20px;
+//               animation: spin 1s linear infinite;
+//             }
+      
+//             .arrow-icon {
+//               font-size: 20px;
+//             }
+      
+//             &:hover {
+//               background-color: #0056b3;
+//             }
+//             &:active {
+//               background-color: #004494;
+//               transform: scale(0.95);
+//             }
+//           }
+//         }
+//       }
+      
+//       // Spinner animation
+//       @keyframes spin {
+//         0% {
+//           transform: rotate(0deg);
+//         }
+//         100% {
+//           transform: rotate(360deg);
+//         }
+//       }
+      

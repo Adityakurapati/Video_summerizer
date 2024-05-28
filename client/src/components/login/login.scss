@@ -1,48 +1,88 @@
 .login-container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         height: 100vh;
-      }
-      
-      .login-form {
-        width: 300px;
+    }
+    
+    .login-form {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      }
-      
-      .login-form input {
-        width: 100%;
+        background-color: #f0f0f0; // Adjust background color as needed
+    }
+    
+    .login-form input,
+    .login-form button {
         margin-bottom: 10px;
         padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      
-      .login-form button {
         width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
+    }
+    
+    .login-form button {
         cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
+    }
+    
+    .login-google {
+        background-color: #db4437; // Adjust Google button color as needed
+        color: white;
+        border: none;
+    }
+    
+    .login-image {
+        flex: 1;
+        background-image: url('../../../public/images/login_side.jpg'); // Add your image path here
+        background-size: cover;
+        background-position: center;
+    }
+    
+
+// .login-container {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         justify-content: center;
+//         height: 100vh;
+//       }
       
-      .login-form button:hover {
-        background-color: #0056b3;
-      }
-      .login-google{
-        background-color:rgb(201, 196, 196) o !important;
-        color:white;
-        font-weight:bolder;
-        letter-spacing: .9px;
-        margin-top:2px;
+//       .login-form {
+//         width: 300px;
+//         padding: 20px;
+//         background-color: #f9f9f9;
+//         border-radius: 8px;
+//         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+//       }
+      
+//       .login-form input {
+//         width: 100%;
+//         margin-bottom: 10px;
+//         padding: 10px;
+//         border: 1px solid #ccc;
+//         border-radius: 4px;
+//         box-sizing: border-box;
+//       }
+      
+//       .login-form button {
+//         width: 100%;
+//         padding: 10px;
+//         background-color: #007bff;
+//         color: #fff;
+//         border: none;
+//         border-radius: 4px;
+//         cursor: pointer;
+//         transition: background-color 0.3s ease;
+//       }
+      
+//       .login-form button:hover {
+//         background-color: #0056b3;
+//       }
+//       .login-google{
+//         background-color:rgb(201, 196, 196) o !important;
+//         color:white;
+//         font-weight:bolder;
+//         letter-spacing: .9px;
+//         margin-top:2px;
         
-      }
+//       }
       

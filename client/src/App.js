@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './app.scss';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
 import Parallax from './components/parallax/Parallax';
@@ -48,32 +48,17 @@ function App ()
                                         <Route path="/upload-video" element={ <VideoSummerizer /> } />
                                         <Route path="/view-summerizations" element={ <SummerizationViewer username={ user?.name } /> } />
                                         <Route path="/processedVideo" element={ <ProcessedVideo /> } />
-                                        <Route path="/yt-summerize" element={ <YtSummerizer /> } />
+                                        <Route path="/youtube" element={ <YtSummerizer /> } />
                                         <Route path="/chatbot" element={ <Chatbot /> } />
                                         <Route path="/login" element={ <Login setUser={ setUser } /> } />
                                         <Route path="/register" element={ <Register setUser={ setUser } /> } />
                                         <Route path="/callback" element={ <Callback /> } />
                                         <Route path="/" element={
-                                                <div>
-                                                        <section id="HomePage">
-                                                                <Navbar />
-                                                                <Hero />
-                                                        </section>
-                                                        <section id="Services">
-                                                                <Parallax type='services' />
-                                                        </section>
-                                                        <section id="Features">
-                                                                <Features />
-                                                        </section>
-                                                        <section id="">
-                                                                <Parallax type='testinomials' />
-                                                        </section>
-                                                        <Testinomials />
-                                                        <section id="">
-                                                                <Contact />
-                                                        </section>
-                                                </div>
+                                                <Home />
                                         } />
+                                        {/* <Route path="/" element={
+                                                //user? <Home />:<Navigate to="/login" />
+                                        } /> */}
                                 </Routes>
                                 { user&&<FloatingMenu userName={ user.name } onViewSummerizations={ handleViewSummerizations } onToggleDarkMode={ handleToggleDarkMode } /> }
                                 <Cursor />
@@ -81,5 +66,27 @@ function App ()
                 </Router>
         );
 }
+
+const Home=() => (
+        <div>
+                <section id="HomePage">
+                        <Navbar />
+                        <Hero />
+                </section>
+                <section id="Services">
+                        <Parallax type='services' />
+                </section>
+                <section id="Features">
+                        <Features />
+                </section>
+                <section id="">
+                        <Parallax type='testinomials' />
+                </section>
+                <Testinomials />
+                <section id="">
+                        <Contact />
+                </section>
+        </div>
+);
 
 export default App;

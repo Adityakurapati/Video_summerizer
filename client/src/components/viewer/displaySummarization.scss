@@ -1,0 +1,34 @@
+.display-summerization {
+        margin-top: 20px; // Add top margin for spacing
+    
+        .summerization-item {
+            border: 1px solid #ccc; // Add border for each item
+            border-radius: 5px; // Add border radius for rounded corners
+            padding: 15px; // Add padding for spacing
+            transition: box-shadow 0.3s ease; // Add transition for hover effect
+            cursor: pointer; // Change cursor to pointer on hover
+            background-color: #f9f9f9; // Set background color
+    
+            &:hover {
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); // Add shadow on hover
+            }
+    
+            & + .summerization-item {
+                margin-top: 10px; // Add top margin between items
+            }
+    
+            .text {
+                font-weight: bold; // Set text to bold
+            }
+    
+            .video-link {
+                color: #007bff; // Set link color
+                text-decoration: none; // Remove default link underline
+    
+                &:hover {
+                    text-decoration: underline; // Add underline on hover
+                }
+            }
+        }
+    }
+    

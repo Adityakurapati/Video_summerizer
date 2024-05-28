@@ -49,15 +49,14 @@ def callback():
     print(user)
     return redirect(f"http://localhost:3000/callback?user={json.dumps(user)}")
 
-@auth_bp.route("/UserLogin", methods=["POST"])
+
+@auth_bp.route('/UserLogin', methods=['POST'])
 def user_login():
-    data = request.json
+    data = request.json  # Use request.json to parse JSON data
     username = data.get("username")
     password = data.get("password")
 
-    from app.models.user import User
-    user = User.find_one({"username": username, "password": password})
-    print(user)
+    user = users.find_one({"username": username, "password": password})
     if user:
         session["user_id"] = str(user["_id"])
         session["name"] = user["name"]
